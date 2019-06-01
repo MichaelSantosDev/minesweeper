@@ -2,7 +2,10 @@ package view
 
 import model.Board
 import model.EventBoard
+import java.awt.Color
 import javax.swing.*
+import javax.swing.plaf.ColorUIResource
+import javax.swing.plaf.OptionPaneUI
 
 fun main() {
     MainScreen()
@@ -10,7 +13,7 @@ fun main() {
 
 class MainScreen(): JFrame(){
 
-    private val board = Board(8, 16, 1)
+    private val board = Board(16, 32, 75)
     private val boardPanel = BoardPanel(board)
 
     init {
@@ -28,6 +31,7 @@ class MainScreen(): JFrame(){
                 EventBoard.WIN -> "YOU WIN"
                 EventBoard.LOSE -> "YOU LOSE"
             }
+
 
             JOptionPane.showMessageDialog(this, msg)
             board.restart()
